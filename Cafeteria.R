@@ -68,6 +68,13 @@ consumed %>%
   ggplot(aes(x = item, y = eaten)) +
   geom_boxplot()
 
+# barplot of consumption by pycno
+consumed %>% filter(item %in% c('green', 'mussel', 'red', 'purple')) %>%
+  ggplot(aes(x = item, y = eaten, fill = item)) +
+  geom_col() +
+  scale_fill_viridis(discrete = TRUE) +
+  facet_grid(pycnoID~.)
+
 
 ####
 #<<<<<<<<<<<<<<<<<<<<<<<<<<END OF SCRIPT>>>>>>>>>>>>>>>>>>>>>>>>#
