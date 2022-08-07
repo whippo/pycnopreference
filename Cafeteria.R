@@ -75,6 +75,11 @@ consumed %>% filter(item %in% c('green', 'mussel', 'red', 'purple')) %>%
   scale_fill_viridis(discrete = TRUE) +
   facet_grid(pycnoID~.)
 
+# barplot of prey sizes
+cafeteria %>%
+  ggplot(aes(x = item, y = size)) +
+  geom_boxplot()
+
 
 ####
 #<<<<<<<<<<<<<<<<<<<<<<<<<<END OF SCRIPT>>>>>>>>>>>>>>>>>>>>>>>>#
