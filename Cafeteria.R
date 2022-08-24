@@ -66,7 +66,8 @@ consumed <- cafeteria %>%
 
 consumed %>%
   ggplot(aes(x = item, y = eaten)) +
-  geom_boxplot()
+  geom_boxplot() +
+  theme_minimal()
 
 # barplot of consumption by pycno
 consumed %>% filter(item %in% c('green', 'mussel', 'red', 'purple')) %>%
