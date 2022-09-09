@@ -81,8 +81,19 @@ cafeteria %>%
   ggplot(aes(x = item, y = size)) +
   geom_boxplot()
 
+# consumed prey by size
+cafeteria %>%
+  mutate(consumed = as.character(as.integer(!(is.na(consumed_date))))) %>%
+  ggplot(aes(x = item, y = size, color = consumed)) +
+  geom_point(size = 2, position = "jitter") +
+  scale_color_viridis(discrete = TRUE, begin = 0.2, end = 0.8, option = "D")
+
+
 
 ####
 #<<<<<<<<<<<<<<<<<<<<<<<<<<END OF SCRIPT>>>>>>>>>>>>>>>>>>>>>>>>#
 
 # SCRATCH PAD ####
+
+here <- cafeteria %>%
+  mutate(consumed = as.integer(!(is.na(consumed_date))))
