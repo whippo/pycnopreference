@@ -47,6 +47,7 @@ library(viridis)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 cafeteria <- read_csv("Data/PycnoFeeding_cafeteria.csv")
+PycnoMetrics <- read_csv("Data/PycnoMetrics.csv")
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # MANIPULATE DATA                                                              ####
@@ -84,9 +85,21 @@ cafeteria %>%
 # consumed prey by size
 cafeteria %>%
   mutate(consumed = as.character(as.integer(!(is.na(consumed_date))))) %>%
+  mutate(consumed = recode(consumed, '1' = 'consumed', '0' = 'not consumed')) %>%
   ggplot(aes(x = item, y = size, color = consumed)) +
   geom_point(size = 2, position = "jitter") +
   scale_color_viridis(discrete = TRUE, begin = 0.2, end = 0.8, option = "D")
+
+# total number of prey items eaten across all trials
+consumed %>%
+  ggplot(aes(x = item, y = eaten, fill = pycnoID)) +
+  geom_bar(stat = "sum") +
+  scale_fill_viridis(discrete = TRUE, option = "A")
+
+# Pycno Sizes
+PycnoMetrics %>%
+  ggplot(aes(x = pycnoID, y = diameter_cm)) +
+  geom_point(size = 4)
 
 
 
