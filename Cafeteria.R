@@ -222,83 +222,73 @@ ggplot(diet_plot) +
 
 # rogers index of food preference
 
-consumed_rogers <- cafeteria %>%
-  filter(!is.na(consumed_date)) %>%
-  select(pycnoID, item, consumed_date) %>%
+consumed_rodgers <- cafeteria %>%
+  filter(!is.na(enveloped_date)) %>%
+  select(pycnoID, item, enveloped_date) %>%
   mutate(quantity = 1) %>%
   group_by(pycnoID, item) %>%
-  mutate(day = case_when(consumed_date == "2022-07-08" ~ 1,
-                         consumed_date == "2022-07-09" ~ 2,
-                         consumed_date == "2022-07-10" ~ 3,
-                         consumed_date == "2022-07-11" ~ 4,
-                         consumed_date == "2022-07-12" ~ 5,
-                         consumed_date == "2022-07-13" ~ 6,
-                         consumed_date == "2022-07-14" ~ 7,
-                         consumed_date == "2022-07-15" ~ 8,
-                         consumed_date == "2022-07-16" ~ 9,
-                         consumed_date == "2022-07-17" ~ 10,
-                         consumed_date == "2022-07-18" ~ 11,
-                         consumed_date == "2022-07-19" ~ 12,
-                         consumed_date == "2022-07-20" ~ 13,
-                         consumed_date == "2022-07-28" ~ 1,
-                         consumed_date == "2022-07-29" ~ 2,
-                         consumed_date == "2022-07-30" ~ 3,
-                         consumed_date == "2022-07-31" ~ 4,
-                         consumed_date == "2022-08-01" ~ 5,
-                         consumed_date == "2022-08-02" ~ 6,
-                         consumed_date == "2022-08-03" ~ 7,
-                         consumed_date == "2022-08-04" ~ 8,
-                         consumed_date == "2022-08-05" ~ 9,
-                         consumed_date == "2022-08-06" ~ 10,
-                         consumed_date == "2022-08-07" ~ 11,
-                         consumed_date == "2022-08-08" ~ 12,
-                         consumed_date == "2022-08-09" ~ 13,
-                         consumed_date == "2022-08-14" ~ 1,
-                         consumed_date == "2022-08-15" ~ 2,
-                         consumed_date == "2022-08-16" ~ 3,
-                         consumed_date == "2022-08-17" ~ 4,
-                         consumed_date == "2022-08-18" ~ 5,
-                         consumed_date == "2022-08-19" ~ 6,
-                         consumed_date == "2022-08-20" ~ 7,
-                         consumed_date == "2022-08-21" ~ 8,
-                         consumed_date == "2022-08-22" ~ 9,
-                         consumed_date == "2022-08-23" ~ 10,
-                         consumed_date == "2022-08-24" ~ 11,
-                         consumed_date == "2022-08-25" ~ 12,
-                         consumed_date == "2022-08-26" ~ 13,
-                         consumed_date == "2022-09-08" ~ 1,
-                         consumed_date == "2022-09-09" ~ 2,
-                         consumed_date == "2022-09-10" ~ 3,
-                         consumed_date == "2022-09-11" ~ 4,
-                         consumed_date == "2022-09-12" ~ 5,
-                         consumed_date == "2022-09-13" ~ 6,
-                         consumed_date == "2022-09-14" ~ 7,
-                         consumed_date == "2022-09-15" ~ 8,
-                         consumed_date == "2022-09-16" ~ 9,
-                         consumed_date == "2022-09-17" ~ 10,
-                         consumed_date == "2022-09-18" ~ 11,
-                         consumed_date == "2022-09-19" ~ 12,
-                         consumed_date == "2022-09-20" ~ 13,
-                         consumed_date == "2022-09-29" ~ 1,
-                         consumed_date == "2022-09-30" ~ 2,
-                         consumed_date == "2022-10-01" ~ 3,
-                         consumed_date == "2022-10-02" ~ 4,
-                         consumed_date == "2022-10-03" ~ 5,
-                         consumed_date == "2022-10-04" ~ 6,
-                         consumed_date == "2022-10-05" ~ 7,
-                         consumed_date == "2022-10-06" ~ 8,
-                         consumed_date == "2022-10-07" ~ 9,
-                         consumed_date == "2022-10-08" ~ 10,
-                         consumed_date == "2022-10-09" ~ 11,
-                         consumed_date == "2022-10-10" ~ 12,
-                         consumed_date == "2022-10-11" ~ 13)) %>%
-  complete(day = c(1:13)) %>%
+  mutate(day = case_when(enveloped_date == "2022-07-08" ~ 1,
+                         enveloped_date == "2022-07-09" ~ 2,
+                         enveloped_date == "2022-07-10" ~ 3,
+                         enveloped_date == "2022-07-11" ~ 4,
+                         enveloped_date == "2022-07-12" ~ 5,
+                         enveloped_date == "2022-07-13" ~ 6,
+                         enveloped_date == "2022-07-14" ~ 7,
+                         enveloped_date == "2022-07-15" ~ 8,
+                         enveloped_date == "2022-07-16" ~ 9,
+                         enveloped_date == "2022-07-17" ~ 10,
+                         enveloped_date == "2022-07-18" ~ 11,
+                         enveloped_date == "2022-07-28" ~ 1,
+                         enveloped_date == "2022-07-29" ~ 2,
+                         enveloped_date == "2022-07-30" ~ 3,
+                         enveloped_date == "2022-07-31" ~ 4,
+                         enveloped_date == "2022-08-01" ~ 5,
+                         enveloped_date == "2022-08-02" ~ 6,
+                         enveloped_date == "2022-08-03" ~ 7,
+                         enveloped_date == "2022-08-04" ~ 8,
+                         enveloped_date == "2022-08-05" ~ 9,
+                         enveloped_date == "2022-08-06" ~ 10,
+                         enveloped_date == "2022-08-07" ~ 11,
+                         enveloped_date == "2022-08-14" ~ 1,
+                         enveloped_date == "2022-08-15" ~ 2,
+                         enveloped_date == "2022-08-16" ~ 3,
+                         enveloped_date == "2022-08-17" ~ 4,
+                         enveloped_date == "2022-08-18" ~ 5,
+                         enveloped_date == "2022-08-19" ~ 6,
+                         enveloped_date == "2022-08-20" ~ 7,
+                         enveloped_date == "2022-08-21" ~ 8,
+                         enveloped_date == "2022-08-22" ~ 9,
+                         enveloped_date == "2022-08-23" ~ 10,
+                         enveloped_date == "2022-08-24" ~ 11,
+                         enveloped_date == "2022-09-08" ~ 1,
+                         enveloped_date == "2022-09-09" ~ 2,
+                         enveloped_date == "2022-09-10" ~ 3,
+                         enveloped_date == "2022-09-11" ~ 4,
+                         enveloped_date == "2022-09-12" ~ 5,
+                         enveloped_date == "2022-09-13" ~ 6,
+                         enveloped_date == "2022-09-14" ~ 7,
+                         enveloped_date == "2022-09-15" ~ 8,
+                         enveloped_date == "2022-09-16" ~ 9,
+                         enveloped_date == "2022-09-17" ~ 10,
+                         enveloped_date == "2022-09-18" ~ 11,
+                         enveloped_date == "2022-09-29" ~ 1,
+                         enveloped_date == "2022-09-30" ~ 2,
+                         enveloped_date == "2022-10-01" ~ 3,
+                         enveloped_date == "2022-10-02" ~ 4,
+                         enveloped_date == "2022-10-03" ~ 5,
+                         enveloped_date == "2022-10-04" ~ 6,
+                         enveloped_date == "2022-10-05" ~ 7,
+                         enveloped_date == "2022-10-06" ~ 8,
+                         enveloped_date == "2022-10-07" ~ 9,
+                         enveloped_date == "2022-10-08" ~ 10,
+                         enveloped_date == "2022-10-09" ~ 11)) %>%
+  complete(day = c(1:11)) %>%
   replace_na(list(quantity = 0)) %>%
   ungroup() %>%
   group_by(pycnoID, item, day) %>%
   summarise(quantity = sum(quantity)) %>%
   reframe(quantity = cumsum(quantity)) %>%
-  mutate(day = rep(1:13, 34)) %>%
+  mutate(day = rep(1:11, 34)) %>%
   mutate(item = factor(item, levels = c("green", "purple", "red", "mussel", "cucumber"))) %>%
   mutate(Prey = item) %>%
   mutate(Site = case_when(pycnoID == "Eagle1" ~ "A (Eagle Cove 1)",
@@ -315,8 +305,8 @@ consumed_rogers <- cafeteria %>%
 
 
 
-consumed_rogers %>%
- ggplot(aes(x = day, y = quantity, color = Prey, fill = Prey)) + 
+consumed_rodgers %>%
+  ggplot(aes(x = day, y = quantity, color = Prey, fill = Prey)) + 
   geom_line() +
   geom_point() +
   scale_fill_viridis(discrete = TRUE, option = 5, end = 0.9) +
@@ -329,18 +319,22 @@ consumed_rogers %>%
 
 
 
-# area under curve?
+# area under curve
 
 Area <- sm_auc_all(subjects = 'pycnoID', conditions = 'Prey', 
-           x = 'day', values = 'quantity',
-           data = consumed_rogers)
+                   x = 'day', values = 'quantity',
+                   data = consumed_rodgers) %>%
+  group_by(pycnoID) %>%
+  arrange(desc(AUC_quantity), .by_group = TRUE)
 
 Area1 <- Area %>%
   group_by(Prey) %>%
-  summarise(mean(AUC_quantity), sd(AUC_quantity))
+  summarise("AUC (mean)" = mean(AUC_quantity), "AUC (st.dev.)" = sd(AUC_quantity)) %>%
+  arrange(desc(`AUC (mean)`))
 
-write_csv(Area, "area_uc.csv")
-write_csv(Area1, "area1_uc.csv")
+write_csv(Area, "area_uc_csv.csv")
+write_csv(Area1, "area1_uc_csv.csv")
+
 
 
 
@@ -349,6 +343,6 @@ write_csv(Area1, "area1_uc.csv")
 
 # SCRATCH PAD ####
 
-here <- cafeteria %>%
-  mutate(consumed = as.integer(!(is.na(consumed_date))))
+# test rodgers with time enveloped
+
 
