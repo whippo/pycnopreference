@@ -1,0 +1,80 @@
+Region,Location,N,Depth,Item,value,Unit,Year,Measurement,Lat,Lon,Ref,Notes
+Alaska,Torch Bay,311,Subtidal,Urchins,66,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Urchins,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Gastropods,5,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Gastropods,42,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Mytilus edulis,4,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Mytilus edulis,36,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Ophiuroids,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Ophiuroids,0,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Bivalves,6,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Bivalves,3,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Bryozoans,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Bryozoans,1,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Holothurians,1,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Holothurians,4,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Salps,4,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Salps,0,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Crabs,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Crabs,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Hydroids,1,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Hydroids,0,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Balanus spp.,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Balanus spp.,6,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Chitons,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Chitons,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,311,Subtidal,Other,3,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Alaska,Torch Bay,162,Intertidal,Other,2,percent,1977,feeding observation,58.3257493,-136.791801,Duggins 1983,
+Central California,Pacific Grove,41,Subtidal,Gastropods,79,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Crustaceans,13.6,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Other Echinoderms,1.7,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Urchins,1.1,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Bivalves,1.4,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Polychaetes,0.8,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Bryozoans,0.6,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Fishes,0.6,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Sponges,0.3,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Sipunculids,0.3,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+Central California,Pacific Grove,41,Subtidal,Unidentified,0.6,percent,1980,gut contents,36.6254128,-121.9417286,Herrlinger 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,67,Subtidal Exposed,Gastropods,40.1,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,120,Subtidal Intermediate,Gastropods,27.1,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,45,Subtidal Protected,Gastropods,21.2,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,67,Subtidal Exposed,Bivalves,14.9,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,120,Subtidal Intermediate,Bivalves,22.3,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,45,Subtidal Protected,Bivalves,11.5,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,67,Subtidal Exposed,Crustaceans,12.6,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,67,Subtidal Exposed,Barnacles,0.6,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,120,Subtidal Intermediate,Crustaceans,6.2,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,120,Subtidal Intermediate,Barnacles,1.3,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,45,Subtidal Protected,Crustaceans,19.2,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,45,Subtidal Protected,Barnacles,5.8,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,condensed higher-resolutions taxa
+British Columbia,Bamfield,232,Subtidal,Urchins,4.6,percent,1977,gut contents,48.8262097,-125.1359127,Shivji et al 1983,"condensed higher-resolutions taxa, no exposure data about urchin prey"
+British Columbia,Gabriola Island,7,Subtidal,Barnacles,80,percent,1983,feeding observation,49.1648773,-123.781989,Sloan & Robinson 1983,sand substrate only
+British Columbia,Gabriola Island,7,Subtidal,Bivalves,20,percent,1983,feeding observation,49.1648773,-123.781989,Sloan & Robinson 1983,sand substrate only
+Alaska,Prince William Sound,425,Intertidal,Polychaetes,20,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 425 individual Pycnos
+Alaska,Prince William Sound,425,Intertidal,Molluscs Pelecypoda,8894,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 425 individual Pycnos
+Alaska,Prince William Sound,425,Intertidal,Molluscs Gastropods,554,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 425 individual Pycnos
+Alaska,Prince William Sound,425,Intertidal,Molluscs Cephalopods,4,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 425 individual Pycnos
+Alaska,Prince William Sound,425,Intertidal,Crustaceans,22,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 425 individual Pycnos
+Alaska,Prince William Sound,425,Intertidal,Barnacles,8,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 425 individual Pycnos
+Alaska,Prince William Sound,425,Intertidal,Other Echinoderms,6,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,"count across 425 individual Pycnos, only ONE purple urchin"
+Alaska,Prince William Sound,425,Intertidal,Urchins,2,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,"count across 425 individual Pycnos, only ONE purple urchin, one heart urchin"
+Alaska,Prince William Sound,73,Subtidal,Bivalves,2150,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 73 individual Pycnos
+Alaska,Prince William Sound,73,Subtidal,Crustaceans,1,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 73 individual Pycnos
+Alaska,Prince William Sound,73,Subtidal,Gastropods,76,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,count across 73 individual Pycnos
+Alaska,Prince William Sound,73,Subtidal,Echinoderms,12,count,1975,gut contents,60.593656,-147.287921,Paul & Feder 1975,"count across 73 individual Pycnos, all ophioroids"
+Washington,San Juan Islands,24,Subtidal Vadas,Urchins,25,percent,1968,gut contents,48.5379939,-123.0003477,Mauzey et al 1968,
+Washington,San Juan Islands,24,Subtidal Vadas,Bivalves,54,percent,1968,gut contents,48.5379939,-123.0003477,Mauzey et al 1968,
+Washington,San Juan Islands,24,Subtidal Vadas,Gastropods,12,percent,1968,gut contents,48.5379939,-123.0003477,Mauzey et al 1968,
+Washington,San Juan Islands,24,Subtidal Vadas,Other Echinoderms,9,percent,1968,gut contents,48.5379939,-123.0003477,Mauzey et al 1968,
+Washington,San Juan Islands,102,Subtidal Mauzey,Urchins,21,percent,1968,gut contents,48.5379939,-123.0003477,Mauzey et al 1968,
+Washington,San Juan Islands,102,Subtidal Mauzey,Bivalves,72,percent,1968,gut contents,48.5379939,-123.0003477,Mauzey et al 1968,
+Washington,San Juan Islands,102,Subtidal Mauzey,Gastropods,4,percent,1968,gut contents,48.5379939,-123.0003477,Mauzey et al 1968,
+Washington,San Juan Islands,102,Subtidal Mauzey,Other Echinoderms,3,percent,1968,gut contents,48.5379939,-123.0003477,Mauzey et al 1968,
+Washington,Outer Coast,51,Intertidal Paine,Urchins,88,percent,1968,gut contents,48.3952821,-124.6243764,Mauzey et al 1968,
+Washington,Outer Coast,51,Intertidal Paine,Bivalves,4,percent,1968,gut contents,48.3952821,-124.6243764,Mauzey et al 1968,
+Washington,Outer Coast,51,Intertidal Paine,Crustaceans,2,percent,1968,gut contents,48.3952821,-124.6243764,Mauzey et al 1968,
+Washington,Outer Coast,51,Intertidal Paine,Gastropods,2,percent,1968,gut contents,48.3952821,-124.6243764,Mauzey et al 1968,
+Washington,Outer Coast,51,Intertidal Paine,Other Echinoderms,4,percent,1968,gut contents,48.3952821,-124.6243764,Mauzey et al 1968,
+Washington,Outer Coast,93,Intertidal Dayton,Urchins,98,percent,1968,gut contents,48.3952821,-124.6243764,Mauzey et al 1968,
+Washington,Outer Coast,93,Intertidal Dayton,Crustaceans,2,percent,1968,gut contents,48.3952821,-124.6243764,Mauzey et al 1968,
