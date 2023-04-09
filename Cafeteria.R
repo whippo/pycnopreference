@@ -335,7 +335,12 @@ Area <- sm_auc_all(subjects = 'pycnoID', conditions = 'Prey',
            x = 'day', values = 'quantity',
            data = consumed_rogers)
 
+Area1 <- Area %>%
+  group_by(Prey) %>%
+  summarise(mean(AUC_quantity), sd(AUC_quantity))
+
 write_csv(Area, "area_uc.csv")
+write_csv(Area1, "area1_uc.csv")
 
 
 
