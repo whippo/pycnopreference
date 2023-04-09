@@ -44,6 +44,7 @@ library(viridis)
 library(vegan)
 library(rstatix)
 library(ggpubr)
+library(reshape2)
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # READ IN AND PREPARE DATA                                                     ####
@@ -120,7 +121,7 @@ consumed %>%
   filter(item %in% c('green', 'purple', 'red', 'mussel', 'cucumber')) %>%
   ggplot() +
   geom_col(aes(x = reorder(pycnoID, eaten, function(x){ sum(x)}), y = eaten, fill = item), position = "fill") +
-  scale_fill_viridis(discrete = TRUE, option = 5) +
+  scale_fill_viridis(discrete = TRUE, option = 5, end = 0.9) +
   theme_bw() + 
   scale_x_discrete(label = c('A', 'B', 'C', 'A', 'A', 'D', 'D', 'E', 'A', 'A', 'A')) +
   geom_text(data = totals, aes(x = pycnoID, y= 1.05, label = total, fill = NULL)) +
@@ -224,13 +225,8 @@ ggplot(diet_plot) +
 consumed_rogers <- cafeteria %>%
   filter(!is.na(consumed_date)) %>%
   select(pycnoID, item, consumed_date) %>%
-  mutate(quantity = 1)
-
-# extract dates to create "Day of Trial" column
-
-dates <- as.data.frame(cafeteria$consumed_date)
-dates <- dates %>%
-  transmute(consumed_date = `cafeteria$consumed_date`) %>%
+  mutate(quantity = 1) %>%
+  group_by(pycnoID, item) %>%
   mutate(day = case_when(consumed_date == "2022-07-08" ~ 1,
                          consumed_date == "2022-07-09" ~ 2,
                          consumed_date == "2022-07-10" ~ 3,
@@ -242,6 +238,8 @@ dates <- dates %>%
                          consumed_date == "2022-07-16" ~ 9,
                          consumed_date == "2022-07-17" ~ 10,
                          consumed_date == "2022-07-18" ~ 11,
+                         consumed_date == "2022-07-19" ~ 12,
+                         consumed_date == "2022-07-20" ~ 13,
                          consumed_date == "2022-07-28" ~ 1,
                          consumed_date == "2022-07-29" ~ 2,
                          consumed_date == "2022-07-30" ~ 3,
@@ -253,6 +251,8 @@ dates <- dates %>%
                          consumed_date == "2022-08-05" ~ 9,
                          consumed_date == "2022-08-06" ~ 10,
                          consumed_date == "2022-08-07" ~ 11,
+                         consumed_date == "2022-08-08" ~ 12,
+                         consumed_date == "2022-08-09" ~ 13,
                          consumed_date == "2022-08-14" ~ 1,
                          consumed_date == "2022-08-15" ~ 2,
                          consumed_date == "2022-08-16" ~ 3,
@@ -264,6 +264,8 @@ dates <- dates %>%
                          consumed_date == "2022-08-22" ~ 9,
                          consumed_date == "2022-08-23" ~ 10,
                          consumed_date == "2022-08-24" ~ 11,
+                         consumed_date == "2022-08-25" ~ 12,
+                         consumed_date == "2022-08-26" ~ 13,
                          consumed_date == "2022-09-08" ~ 1,
                          consumed_date == "2022-09-09" ~ 2,
                          consumed_date == "2022-09-10" ~ 3,
@@ -275,6 +277,8 @@ dates <- dates %>%
                          consumed_date == "2022-09-16" ~ 9,
                          consumed_date == "2022-09-17" ~ 10,
                          consumed_date == "2022-09-18" ~ 11,
+                         consumed_date == "2022-09-19" ~ 12,
+                         consumed_date == "2022-09-20" ~ 13,
                          consumed_date == "2022-09-29" ~ 1,
                          consumed_date == "2022-09-30" ~ 2,
                          consumed_date == "2022-10-01" ~ 3,
@@ -285,11 +289,55 @@ dates <- dates %>%
                          consumed_date == "2022-10-06" ~ 8,
                          consumed_date == "2022-10-07" ~ 9,
                          consumed_date == "2022-10-08" ~ 10,
-                         consumed_date == "2022-10-09" ~ 11))
-                         
-consumed_all <- consumed_rogers %>%
-  left_join(dates, by = "consumed_date")
-         
+                         consumed_date == "2022-10-09" ~ 11,
+                         consumed_date == "2022-10-10" ~ 12,
+                         consumed_date == "2022-10-11" ~ 13)) %>%
+  complete(day = c(1:13)) %>%
+  replace_na(list(quantity = 0)) %>%
+  ungroup() %>%
+  group_by(pycnoID, item, day) %>%
+  summarise(quantity = sum(quantity)) %>%
+  reframe(quantity = cumsum(quantity)) %>%
+  mutate(day = rep(1:13, 34)) %>%
+  mutate(item = factor(item, levels = c("green", "purple", "red", "mussel", "cucumber"))) %>%
+  mutate(Prey = item) %>%
+  mutate(Site = case_when(pycnoID == "Eagle1" ~ "A (Eagle Cove 1)",
+                          pycnoID == "Eagle2" ~ "A (Eagle Cove 2)",
+                          pycnoID == "Eagle3" ~ "A (Eagle Cove 3)",
+                          pycnoID == "Eagle4" ~ "A (Eagle Cove 4)",
+                          pycnoID == "Eagle5" ~ "A (Eagle Cove 5)",
+                          pycnoID == "Eagle6" ~ "A (Eagle Cove 6)",
+                          pycnoID == "ONeal1" ~ "B (O'Neal Is.)",
+                          pycnoID == "PtCaution2" ~ "C (Pt. Caution)",
+                          pycnoID == "Goose1" ~ "D (Goose Is. 1)",
+                          pycnoID == "Goose2" ~ "D (Goose Is. 2)",
+                          pycnoID == "Docks3" ~ "E (FHL Docks)"))
+
+
+
+consumed_rogers %>%
+ ggplot(aes(x = day, y = quantity, color = Prey, fill = Prey)) + 
+  geom_line() +
+  geom_point() +
+  scale_fill_viridis(discrete = TRUE, option = 5, end = 0.9) +
+  scale_color_viridis(discrete = TRUE, option = 5, end = 0.9) +
+  scale_y_continuous(limits = c(0,16)) +
+  facet_wrap(Site~.) +
+  theme_bw() +
+  xlab("Day") +
+  ylab("Count")
+
+
+
+# area under curve?
+
+Area <- sm_auc_all(subjects = 'pycnoID', conditions = 'Prey', 
+           x = 'day', values = 'quantity',
+           data = consumed_rogers)
+
+write_csv(Area, "area_uc.csv")
+
+
 
 ####
 #<<<<<<<<<<<<<<<<<<<<<<<<<<END OF SCRIPT>>>>>>>>>>>>>>>>>>>>>>>>#
