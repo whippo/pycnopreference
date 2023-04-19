@@ -1,0 +1,178 @@
+﻿Local Here(
+	(table1 = New Table( "WCF",
+		Add Rows( 67 ),
+		New Script(
+			"Source",
+			Open(
+				"$DOCUMENTS/Git/pycnopreference/JMP stats/WCF.csv",
+				columns(
+					New Column( "sampleID", Character, "Nominal" ),
+					New Column( "item", Character, "Nominal" ),
+					New Column( "N", Numeric, "Continuous", Format( "Best", 12 ) ),
+					New Column( "Depth", Character, "Nominal" ),
+					New Column( "grand_sum",
+						Numeric,
+						"Continuous",
+						Format( "Best", 12 )
+					)
+				),
+				Import Settings(
+					End Of Line( CRLF, CR, LF ),
+					End Of Field( Comma, CSV( 1 ) ),
+					Strip Quotes( 0 ),
+					Use Apostrophe as Quotation Mark( 0 ),
+					Use Regional Settings( 0 ),
+					Scan Whole File( 1 ),
+					Treat empty columns as numeric( 0 ),
+					CompressNumericColumns( 0 ),
+					CompressCharacterColumns( 0 ),
+					CompressAllowListCheck( 0 ),
+					Labels( 1 ),
+					Column Names Start( 1 ),
+					First Named Column( 1 ),
+					Data Starts( 2 ),
+					Lines To Read( "All" ),
+					Year Rule( "20xx" )
+				)
+			)
+		),
+		New Column( "sampleID",
+			Character,
+			"Nominal",
+			Set Values(
+				{"Bamfield_Subtidal Exposed", "Bamfield_Subtidal Exposed",
+				"Bamfield_Subtidal Exposed", "Bamfield_Subtidal Exposed",
+				"Bamfield_Subtidal Exposed", "Bamfield_Subtidal Exposed",
+				"Bamfield_Subtidal Intermediate", "Bamfield_Subtidal Intermediate",
+				"Bamfield_Subtidal Intermediate", "Bamfield_Subtidal Intermediate",
+				"Bamfield_Subtidal Intermediate", "Bamfield_Subtidal Protected",
+				"Bamfield_Subtidal Protected", "Bamfield_Subtidal Protected",
+				"Bamfield_Subtidal Protected", "Bamfield_Subtidal Protected",
+				"Gabriola Island_Subtidal", "Gabriola Island_Subtidal",
+				"Outer Coast_Intertidal Dayton", "Outer Coast_Intertidal Dayton",
+				"Outer Coast_Intertidal Paine", "Outer Coast_Intertidal Paine",
+				"Outer Coast_Intertidal Paine", "Outer Coast_Intertidal Paine",
+				"Outer Coast_Intertidal Paine", "Pacific Grove_Subtidal",
+				"Pacific Grove_Subtidal", "Pacific Grove_Subtidal",
+				"Pacific Grove_Subtidal", "Pacific Grove_Subtidal",
+				"Pacific Grove_Subtidal", "Prince William Sound_Intertidal",
+				"Prince William Sound_Intertidal", "Prince William Sound_Intertidal",
+				"Prince William Sound_Intertidal", "Prince William Sound_Intertidal",
+				"Prince William Sound_Intertidal", "Prince William Sound_Intertidal",
+				"Prince William Sound_Intertidal", "Prince William Sound_Subtidal",
+				"Prince William Sound_Subtidal", "Prince William Sound_Subtidal",
+				"Prince William Sound_Subtidal", "San Juan Islands_Subtidal Mauzey",
+				"San Juan Islands_Subtidal Mauzey",
+				"San Juan Islands_Subtidal Mauzey",
+				"San Juan Islands_Subtidal Mauzey",
+				"San Juan Islands_Subtidal Vadas", "San Juan Islands_Subtidal Vadas",
+				"San Juan Islands_Subtidal Vadas", "San Juan Islands_Subtidal Vadas",
+				"Torch Bay_Intertidal", "Torch Bay_Intertidal",
+				"Torch Bay_Intertidal", "Torch Bay_Intertidal",
+				"Torch Bay_Intertidal", "Torch Bay_Intertidal",
+				"Torch Bay_Intertidal", "Torch Bay_Intertidal", "Torch Bay_Subtidal",
+				"Torch Bay_Subtidal", "Torch Bay_Subtidal", "Torch Bay_Subtidal",
+				"Torch Bay_Subtidal", "Torch Bay_Subtidal", "Torch Bay_Subtidal",
+				"Torch Bay_Subtidal"}
+			),
+			Set Display Width( 172 )
+		),
+		New Column( "item",
+			Character,
+			"Nominal",
+			Set Selected,
+			Set Values(
+				{"Barnacles", "Bivalves", "Crustaceans", "Gastropods", "Other",
+				"Urchins", "Barnacles", "Bivalves", "Crustaceans", "Gastropods",
+				"Other", "Barnacles", "Bivalves", "Crustaceans", "Gastropods",
+				"Other", "Barnacles", "Bivalves", "Crustaceans", "Urchins",
+				"Bivalves", "Crustaceans", "Gastropods", "Other Echinoderms",
+				"Urchins", "Bivalves", "Crustaceans", "Gastropods", "Other",
+				"Other Echinoderms", "Urchins", "Barnacles", "Bivalves",
+				"Crustaceans", "Gastropods", "Other", "Other Echinoderms",
+				"Other Molluscs", "Urchins", "Bivalves", "Crustaceans", "Gastropods",
+				"Other Echinoderms", "Bivalves", "Gastropods", "Other Echinoderms",
+				"Urchins", "Bivalves", "Gastropods", "Other Echinoderms", "Urchins",
+				"Barnacles", "Bivalves", "Crustaceans", "Gastropods", "Other",
+				"Other Echinoderms", "Other Molluscs", "Urchins", "Barnacles",
+				"Bivalves", "Crustaceans", "Gastropods", "Other",
+				"Other Echinoderms", "Other Molluscs", "Urchins"}
+			)
+		),
+		New Column( "N",
+			Numeric,
+			"Continuous",
+			Format( "Best", 12 ),
+			Set Values(
+				[67, 67, 67, 67, 67, 232, 120, 120, 120, 120, 120, 45, 45, 45, 45,
+				45, 7, 7, 93, 93, 51, 51, 51, 51, 51, 41, 41, 41, 41, 41, 41, 425,
+				425, 425, 425, 425, 425, 425, 425, 73, 73, 73, 73, 102, 102, 102,
+				102, 24, 24, 24, 24, 162, 162, 162, 162, 162, 162, 162, 162, 311,
+				311, 311, 311, 311, 311, 311, 311]
+			)
+		),
+		New Column( "Depth",
+			Character,
+			"Nominal",
+			Set Values(
+				{"Subtidal", "Subtidal", "Subtidal", "Subtidal", "Subtidal",
+				"Subtidal", "Subtidal", "Subtidal", "Subtidal", "Subtidal",
+				"Subtidal", "Subtidal", "Subtidal", "Subtidal", "Subtidal",
+				"Subtidal", "Subtidal", "Subtidal", "Intertidal", "Intertidal",
+				"Intertidal", "Intertidal", "Intertidal", "Intertidal", "Intertidal",
+				"Subtidal", "Subtidal", "Subtidal", "Subtidal", "Subtidal",
+				"Subtidal", "Intertidal", "Intertidal", "Intertidal", "Intertidal",
+				"Intertidal", "Intertidal", "Intertidal", "Intertidal", "Subtidal",
+				"Subtidal", "Subtidal", "Subtidal", "Subtidal", "Subtidal",
+				"Subtidal", "Subtidal", "Subtidal", "Subtidal", "Subtidal",
+				"Subtidal", "Intertidal", "Intertidal", "Intertidal", "Intertidal",
+				"Intertidal", "Intertidal", "Intertidal", "Intertidal", "Subtidal",
+				"Subtidal", "Subtidal", "Subtidal", "Subtidal", "Subtidal",
+				"Subtidal", "Subtidal"}
+			)
+		),
+		New Column( "grand_sum",
+			Numeric,
+			"Continuous",
+			Format( "Best", 12 ),
+			Set Values(
+				[0.00445733981275748, 0.110690605350144, 0.093604136067907,
+				0.297898877485958, 0.202066071511672, 0.0442674503054965,
+				0.0109961747203269, 0.188626689433299, 0.0524432948200204,
+				0.229227949939121, 0.364565484958529, 0.0390088015425807,
+				0.0773450375413239, 0.129132584416819, 0.142583895293571,
+				0.284495225043304, 0.275044529674067, 0.0687611324185169,
+				0.0160164987114189, 0.784808436859525, 0.0277871805241909,
+				0.0138935902620955, 0.0138935902620955, 0.0277871805241909,
+				0.6113179715322, 0.00918565507887545, 0.0892320779090758,
+				0.518333393736543, 0.0209957830374296, 0.0111540097386345,
+				0.00721730041911642, 0.00085543210708904, 1.00000013318709,
+				0.00245936730788099, 0.0623396148041138, 0.00224550928110873,
+				0.00064157408031678, 0.00042771605354452, 0.00021385802677226,
+				0.727949029328987, 0.000303217340134952, 0.0256976695764372,
+				0.00409343409182186, 0.58834480385562, 0.0326858224364233,
+				0.0245143668273175, 0.171600567791223, 0.30321120787263,
+				0.0673802684161399, 0.050535201312105, 0.140375559200292,
+				0.0539329452804449, 0.350564144322892, 0.017977648426815,
+				0.377530616963114, 0.0269664726402224, 0.0359552968536299,
+				0.017977648426815, 0.017977648426815, 0.0202822653800755,
+				0.101411326900377, 0.0202822653800755, 0.0507056634501887,
+				0.101411326900377, 0.0304233980701132, 0.0202822653800755,
+				0.669314757542491]
+			)
+		),
+		Set Row States(
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2,
+			2, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+			1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+		)
+	)) << Run Formulas;
+	New Window( "ANOVA - WCF subtidal",
+		table1 << Oneway(
+			Y( :grand_sum ),
+			X( :item ),
+			Means( 1 ),
+			Mean Diamonds( 1 )
+		)
+	) << Move Window( 2466, 72 ) << Set Window Icon( "FitYByX" );
+)

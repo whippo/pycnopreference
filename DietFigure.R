@@ -156,6 +156,13 @@ PycnoDiet_step11 <- PycnoDiet_step10 %>%
   group_by(item, N, Depth) %>%
   summarise(grand_sum = sum(weighted)/245.8069)
 
+# separate to compare AUC in JMP
+PycnoDiet_step12 <- PycnoDiet_step10 %>%
+  group_by(sampleID, item, N, Depth) %>%
+  summarise(grand_sum = sum(weighted)/245.8069)
+
+write_csv(PycnoDiet_step12, "WCF.csv")
+
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # DESCRIPTIVE STATS                                                            ####
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -165,6 +172,12 @@ n_values <- PycnoDiet %>%
   select(Location, N, Depth) %>%
   distinct() %>%
   summarise(mean(N), sd(N))
+
+# mean weighted values for each food type intertidal and subtidal
+
+PycnoDiet_step11 %>%
+  group_by(Depth, item) %>%
+  summarise(mean(grand_sum), sd(grand_sum))
 
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

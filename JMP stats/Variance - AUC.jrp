@@ -1,0 +1,106 @@
+﻿Local Here(
+	(table1 = New Table( "AUC",
+		Add Rows( 56 ),
+		New Script(
+			"Source",
+			Open(
+				"$DOCUMENTS/Git/pycnopreference/JMP stats/AUC.csv",
+				columns(
+					New Column( "Pycnopodia", Character, "Nominal" ),
+					New Column( "Prey", Character, "Nominal" ),
+					New Column( "AUC", Numeric, "Continuous", Format( "Best", 12 ) )
+				),
+				Import Settings(
+					End Of Line( CRLF, CR, LF ),
+					End Of Field( Comma, CSV( 1 ) ),
+					Strip Quotes( 0 ),
+					Use Apostrophe as Quotation Mark( 0 ),
+					Use Regional Settings( 0 ),
+					Scan Whole File( 1 ),
+					Treat empty columns as numeric( 0 ),
+					CompressNumericColumns( 0 ),
+					CompressCharacterColumns( 0 ),
+					CompressAllowListCheck( 0 ),
+					Labels( 1 ),
+					Column Names Start( 1 ),
+					First Named Column( 1 ),
+					Data Starts( 2 ),
+					Lines To Read( "All" ),
+					Year Rule( "20xx" )
+				)
+			)
+		),
+		New Column( "Pycnopodia",
+			Character,
+			"Nominal",
+			Set Values(
+				{"", "FHL Docks", "FHL Docks", "FHL Docks", "FHL Docks", "FHL Docks",
+				"Eagle Cove 1", "Eagle Cove 1", "Eagle Cove 1", "Eagle Cove 1",
+				"Eagle Cove 1", "Eagle Cove 2", "Eagle Cove 2", "Eagle Cove 2",
+				"Eagle Cove 2", "Eagle Cove 2", "Eagle Cove 3", "Eagle Cove 3",
+				"Eagle Cove 3", "Eagle Cove 3", "Eagle Cove 3", "Eagle Cove 4",
+				"Eagle Cove 4", "Eagle Cove 4", "Eagle Cove 4", "Eagle Cove 4",
+				"Eagle Cove 5", "Eagle Cove 5", "Eagle Cove 5", "Eagle Cove 5",
+				"Eagle Cove 5", "Eagle Cove 6", "Eagle Cove 6", "Eagle Cove 6",
+				"Eagle Cove 6", "Eagle Cove 6", "Goose Is. 1", "Goose Is. 1",
+				"Goose Is. 1", "Goose Is. 1", "Goose Is. 1", "Goose Is. 2",
+				"Goose Is. 2", "Goose Is. 2", "Goose Is. 2", "Goose Is. 2",
+				"ONeal Is.", "ONeal Is.", "ONeal Is.", "ONeal Is.", "ONeal Is.",
+				"Pt. Caution", "Pt. Caution", "Pt. Caution", "Pt. Caution",
+				"Pt. Caution"}
+			)
+		),
+		New Column( "Prey",
+			Character,
+			"Nominal",
+			Set Values(
+				{"", "mussel", "green urchin", "red urchin", "purple urchin",
+				"cucumber", "mussel", "red urchin", "purple urchin", "green urchin",
+				"cucumber", "purple urchin", "green urchin", "red urchin", "mussel",
+				"cucumber", "purple urchin", "green urchin", "mussel", "red urchin",
+				"cucumber", "purple urchin", "green urchin", "red urchin", "mussel",
+				"cucumber", "mussel", "green urchin", "red urchin", "purple urchin",
+				"cucumber", "purple urchin", "mussel", "green urchin", "red urchin",
+				"cucumber", "green urchin", "purple urchin", "red urchin", "mussel",
+				"cucumber", "mussel", "red urchin", "green urchin", "purple urchin",
+				"cucumber", "mussel", "cucumber", "purple urchin", "green urchin",
+				"red urchin", "mussel", "purple urchin", "green urchin",
+				"red urchin", "cucumber"}
+			)
+		),
+		New Column( "AUC",
+			Numeric,
+			"Continuous",
+			Format( "Best", 12 ),
+			Set Values(
+				[., 1, 0.98, 0.15, 0.11, 0, 1, 0, 0, 0, 0, 1, 0.7, 0.51, 0, 0, 1,
+				0.78, 0.15, 0.14, 0, 1, 0.32, 0, 0, 0, 1, 0.31, 0.26, 0.21, 0, 1,
+				0.55, 0.13, 0.01, 0, 1, 0.02, 0.02, 0, 0, 1, 0.85, 0.66, 0, 0, 1,
+				0.34, 0.25, 0, 0, 1, 0.37, 0.14, 0, 0]
+			)
+		),
+		Set Row States(
+			[2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1,
+			1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2,
+			1, 1, 1, 1, 1, 1, 1, 2]
+		)
+	)) << Run Formulas;
+	New Window( "Variance - AUC",
+		table1 << Fit Group(
+			Oneway(
+				Y( :AUC ),
+				X( :Prey ),
+				Unequal Variances( 1 ),
+				Std Dev Lines( 1 )
+			),
+			Oneway(
+				Y( :AUC ),
+				X( :Pycnopodia ),
+				Unequal Variances( 1 ),
+				Std Dev Lines( 1 )
+			),
+			<<{Arrange in Rows( 2 )}
+		)
+	) << Move Window( 2126, 37 ) << Size Window( 1022, 1020 ) <<
+	Set Window Icon( "FitYByX" );
+)
