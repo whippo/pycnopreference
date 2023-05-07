@@ -1,5 +1,5 @@
 ﻿Local Here(
-	(table1 = New Table( "WCF",
+	(table1 = New Table( "WCF 4",
 		Add Rows( 67 ),
 		New Script(
 			"Source",
@@ -167,9 +167,10 @@
 			Y( :grand_sum ),
 			X( :item ),
 			Each Pair( 1 ),
+			All Pairs( 1 ),
 			Means( 1 ),
 			Mean Diamonds( 1 )
 		)
-	) << Move Window( 632, 15 ) << Size Window( 840, 804 ) <<
+	) << Move Window( 505, 12 ) << Size Window( 840, 804 ) <<
 	Set Window Icon( "FitYByX" );
 )

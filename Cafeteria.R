@@ -66,6 +66,27 @@ consumed <- cafeteria %>%
 
 consumed$item <- factor(consumed$item, levels = c("green", "purple", "red", "mussel", "cucumber", "chiton"))
 
+# create matrix for PERMANOVA
+
+consumedPERM <- cafeteria %>%
+  mutate(consumed = as.integer(!(is.na(consumed_date)))) %>%
+  group_by(pycnoID, item) %>%
+  summarise(eaten = sum(consumed)) %>%
+  mutate(location = case_when(pycnoID == "Docks3" ~ "Docks",
+                              pycnoID == "Eagle1" ~ "Eagle Cove",
+                              pycnoID == "Eagle2" ~ "Eagle Cove",
+                              pycnoID == "Eagle3" ~ "Eagle Cove",
+                              pycnoID == "Eagle4" ~ "Eagle Cove",
+                              pycnoID == "Eagle5" ~ "Eagle Cove",
+                              pycnoID == "Eagle6" ~ "Eagle Cove",
+                              pycnoID == "Goose1" ~ "Goose Island",
+                              pycnoID == "Goose2" ~ "Goose Island",
+                              pycnoID == "PtCaution2" ~ "Point Caution",
+                              pycnoID == "ONeal1" ~ "ONeal Island")) %>%
+  pivot_wider(names_from = item, values_from = eaten) %>%
+  select(-chiton)
+consumedMAT <- consumedPERM[,3:7]
+
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # FIGURES                                                                      ####
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -78,13 +99,18 @@ consumed %>%
   theme_minimal()
 
 # write as csv
-write_csv(consumed, "consumed.csv")
+#write_csv(consumed, "consumed.csv")
 
 # mean and sterror of consumption for urchins and mussels
 
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# FIGURE 3                                                                     ####
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 #filter(consumed, item %in% c("green", "purple", "red", "mussel")) %>%
 consumed %>%
-ggplot(aes(x = item, y = eaten)) +
+ggplot(aes(x = item, y = eaten/11)) +
   geom_jitter(col = "grey", size = 3, width = 0.15) +
   scale_color_viridis(discrete = TRUE,
                       begin = 0.3,
@@ -98,8 +124,13 @@ ggplot(aes(x = item, y = eaten)) +
   ) +
   geom_errorbar(stat="summary", fun.data="mean_se", size = 1) +
   theme_minimal() +
-  labs(x = "Prey Item", y = "Number Consumed") +
+  labs(x = "Prey Item", y = "Mean Number Consumed Per Day") +
   theme(axis.text.x = element_text(vjust = 5))
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# FIGURES                                                                      ####
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 consumed %>%
   group_by(item) %>%
@@ -120,6 +151,10 @@ consumed %>% filter(item %in% c('green', 'mussel', 'red', 'purple', 'cucumber'))
 totals<- consumed %>%
   group_by(pycnoID) %>%
   summarise(total=sum(eaten))
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# FIGURE 2                                                                     ####
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   
 consumed %>%
   filter(item %in% c('green', 'purple', 'red', 'mussel', 'cucumber')) %>%
@@ -131,6 +166,10 @@ consumed %>%
   geom_text(data = totals, aes(x = pycnoID, y= 1.05, label = total, fill = NULL)) +
   labs(x = "", y = "Proportion Consumed") +
   guides(fill=guide_legend(title="Prey"))
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# FIGURES                                                                      ####
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # barplot of prey sizes
 cafeteria %>%
@@ -428,6 +467,41 @@ write_csv(Area1, "area1_uc_csv.csv")
 #<<<<<<<<<<<<<<<<<<<<<<<<<<END OF SCRIPT>>>>>>>>>>>>>>>>>>>>>>>>#
 
 # SCRATCH PAD ####
+
+# What were the per-pycno urchin consumption rates across all pycnos?
+
+urchineat <- consumed %>%
+  mutate(urchin = case_when(item == "green" ~ "urchin",
+                            item == "purple" ~ "urchin",
+                            item == "red" ~ "urchin")) %>%
+  filter(urchin == "urchin") %>%
+  group_by(pycnoID) %>%
+  summarise(perdayurchn = sum(eaten)/11)
+
+consumed %>%
+  group_by(pycnoID, item) %>%
+  summarise(perdayitem = sum(eaten)/11) %>%
+  ungroup() %>%
+  group_by(item) %>%
+  summarise(mean(perdayitem))
+consumed %>%
+  group_by(pycnoID, item) %>%
+  summarise(perdayitem = sum(eaten)/11) %>%
+  ungroup() %>%
+  group_by(item) %>%
+  summarise(sd(perdayitem))
+
+mean(urchineat$perdayurchn)
+# 0.91
+sd(urchineat$perdayurchn)
+# 0.63
+
+# PERMANOVA of location differences
+
+
+adonis2(consumedMAT ~ location, data = consumedPERM, method = 'bray', perm = 9999)
+
+
 
 # test rodgers with time enveloped
 
