@@ -468,6 +468,60 @@ write_csv(Area1, "area1_uc_csv.csv")
 
 # SCRATCH PAD ####
 
+
+
+# how long were pycnos held before trials?
+
+metricheld <- PycnoMetrics %>%
+  mutate(held = as.numeric(difftime(trial_begin, collection_date, "days"))) %>%
+  select(held, pycnoID)
+cafeteriaheld <- cafeteria %>%
+  left_join(metricheld, by = "pycnoID") %>%
+  unite(pycno_held, pycnoID, held, sep = "_", remove = FALSE)
+
+
+# create column for counts of consumed critters
+consumedheld <- cafeteriaheld %>%
+  mutate(consumed = as.integer(!(is.na(consumed_date)))) %>%
+  group_by(pycno_held, item, held) %>%
+  summarise(eaten = sum(consumed))
+
+consumedheld$item <- factor(consumedheld$item, levels = c("green", "purple", "red", "mussel", "cucumber", "chiton"))
+
+# proportional barplot of consumption per pycno
+totals<- consumedheld %>%
+  group_by(pycno_held) %>%
+  summarise(total=sum(eaten))
+
+consumedheld %>%
+  filter(item %in% c('green', 'purple', 'red', 'mussel', 'cucumber')) %>%
+  ggplot() +
+  geom_col(aes(x = pycno_held, y = eaten, fill = item), position = "fill") +
+  scale_fill_viridis(discrete = TRUE, option = 5, end = 0.9) +
+  theme_bw() + 
+ # scale_x_discrete(label = c('A', 'B', 'C', 'A', 'A', 'D', 'D', 'E', 'A', 'A', 'A')) +
+  geom_text(data = totals, aes(x = pycno_held, y= 1.05, label = total, fill = NULL)) +
+  labs(x = "", y = "Proportion Consumed") +
+  guides(fill=guide_legend(title="Prey"))
+
+# plot days held against number of mussels eaten
+consumedheld %>%
+  filter(item == "mussel") %>%
+  ggplot(aes(x = held, y = eaten)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+  
+
+
+
+
+
+
+
+
+
+
+
 # What were the per-pycno urchin consumption rates across all pycnos?
 
 urchineat <- consumed %>%
