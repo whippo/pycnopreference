@@ -1,0 +1,68 @@
+sampleID,item,N,Depth,grand_sum
+Bamfield_Subtidal Exposed,Barnacles,67,Subtidal,0.004457339812757476
+Bamfield_Subtidal Exposed,Bivalves,67,Subtidal,0.11069060535014401
+Bamfield_Subtidal Exposed,Crustaceans,67,Subtidal,0.09360413606790702
+Bamfield_Subtidal Exposed,Gastropods,67,Subtidal,0.297898877485958
+Bamfield_Subtidal Exposed,Other,67,Subtidal,0.20206607151167227
+Bamfield_Subtidal Exposed,Urchins,232,Subtidal,0.04426745030549646
+Bamfield_Subtidal Intermediate,Barnacles,120,Subtidal,0.010996174720326858
+Bamfield_Subtidal Intermediate,Bivalves,120,Subtidal,0.1886266894332992
+Bamfield_Subtidal Intermediate,Crustaceans,120,Subtidal,0.0524432948200204
+Bamfield_Subtidal Intermediate,Gastropods,120,Subtidal,0.22922794993912143
+Bamfield_Subtidal Intermediate,Other,120,Subtidal,0.3645654849585289
+Bamfield_Subtidal Protected,Barnacles,45,Subtidal,0.039008801542580754
+Bamfield_Subtidal Protected,Bivalves,45,Subtidal,0.07734503754132391
+Bamfield_Subtidal Protected,Crustaceans,45,Subtidal,0.12913258441681905
+Bamfield_Subtidal Protected,Gastropods,45,Subtidal,0.14258389529357102
+Bamfield_Subtidal Protected,Other,45,Subtidal,0.28449522504330443
+Gabriola Island_Subtidal,Barnacles,7,Subtidal,0.27504452967406745
+Gabriola Island_Subtidal,Bivalves,7,Subtidal,0.06876113241851686
+Outer Coast_Intertidal Dayton,Crustaceans,93,Intertidal,0.016016498711418883
+Outer Coast_Intertidal Dayton,Urchins,93,Intertidal,0.7848084368595252
+Outer Coast_Intertidal Paine,Bivalves,51,Intertidal,0.027787180524190918
+Outer Coast_Intertidal Paine,Crustaceans,51,Intertidal,0.013893590262095459
+Outer Coast_Intertidal Paine,Gastropods,51,Intertidal,0.013893590262095459
+Outer Coast_Intertidal Paine,Other Echinoderms,51,Intertidal,0.027787180524190918
+Outer Coast_Intertidal Paine,Urchins,51,Intertidal,0.6113179715322002
+Pacific Grove_Subtidal,Bivalves,41,Subtidal,0.009185655078875449
+Pacific Grove_Subtidal,Crustaceans,41,Subtidal,0.08923207790907578
+Pacific Grove_Subtidal,Gastropods,41,Subtidal,0.5183333937365432
+Pacific Grove_Subtidal,Other,41,Subtidal,0.020995783037429598
+Pacific Grove_Subtidal,Other Echinoderms,41,Subtidal,0.011154009738634472
+Pacific Grove_Subtidal,Urchins,41,Subtidal,0.007217300419116425
+Prince William Sound_Intertidal,Barnacles,425,Intertidal,8.554321070890399e-4
+Prince William Sound_Intertidal,Bivalves,425,Intertidal,1.0000001331870876
+Prince William Sound_Intertidal,Crustaceans,425,Intertidal,0.0024593673078809894
+Prince William Sound_Intertidal,Gastropods,425,Intertidal,0.062339614804113784
+Prince William Sound_Intertidal,Other,425,Intertidal,0.0022455092811087293
+Prince William Sound_Intertidal,Other Echinoderms,425,Intertidal,6.415740803167798e-4
+Prince William Sound_Intertidal,Other Molluscs,425,Intertidal,4.2771605354451997e-4
+Prince William Sound_Intertidal,Urchins,425,Intertidal,2.1385802677225998e-4
+Prince William Sound_Subtidal,Bivalves,73,Subtidal,0.727949029328987
+Prince William Sound_Subtidal,Crustaceans,73,Subtidal,3.032173401349524e-4
+Prince William Sound_Subtidal,Gastropods,73,Subtidal,0.025697669576437217
+Prince William Sound_Subtidal,Other Echinoderms,73,Subtidal,0.004093434091821858
+San Juan Islands_Subtidal Mauzey,Bivalves,102,Subtidal,0.5883448038556202
+San Juan Islands_Subtidal Mauzey,Gastropods,102,Subtidal,0.032685822436423345
+San Juan Islands_Subtidal Mauzey,Other Echinoderms,102,Subtidal,0.02451436682731751
+San Juan Islands_Subtidal Mauzey,Urchins,102,Subtidal,0.17160056779122254
+San Juan Islands_Subtidal Vadas,Bivalves,24,Subtidal,0.30321120787262973
+San Juan Islands_Subtidal Vadas,Gastropods,24,Subtidal,0.06738026841613994
+San Juan Islands_Subtidal Vadas,Other Echinoderms,24,Subtidal,0.05053520131210496
+San Juan Islands_Subtidal Vadas,Urchins,24,Subtidal,0.14037555920029154
+Torch Bay_Intertidal,Barnacles,162,Intertidal,0.05393294528044487
+Torch Bay_Intertidal,Bivalves,162,Intertidal,0.3505641443228917
+Torch Bay_Intertidal,Crustaceans,162,Intertidal,0.017977648426814957
+Torch Bay_Intertidal,Gastropods,162,Intertidal,0.3775306169631141
+Torch Bay_Intertidal,Other,162,Intertidal,0.026966472640222436
+Torch Bay_Intertidal,Other Echinoderms,162,Intertidal,0.035955296853629914
+Torch Bay_Intertidal,Other Molluscs,162,Intertidal,0.017977648426814957
+Torch Bay_Intertidal,Urchins,162,Intertidal,0.017977648426814957
+Torch Bay_Subtidal,Barnacles,311,Subtidal,0.020282265380075475
+Torch Bay_Subtidal,Bivalves,311,Subtidal,0.1014113269003774
+Torch Bay_Subtidal,Crustaceans,311,Subtidal,0.020282265380075475
+Torch Bay_Subtidal,Gastropods,311,Subtidal,0.0507056634501887
+Torch Bay_Subtidal,Other,311,Subtidal,0.1014113269003774
+Torch Bay_Subtidal,Other Echinoderms,311,Subtidal,0.030423398070113215
+Torch Bay_Subtidal,Other Molluscs,311,Subtidal,0.020282265380075475
+Torch Bay_Subtidal,Urchins,311,Subtidal,0.6693147575424908

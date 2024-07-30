@@ -457,8 +457,8 @@ Area1 <- Area %>%
   summarise("AUC (mean)" = mean(AUC), "AUC (st.dev.)" = sd(AUC)) %>%
   arrange(desc(`AUC (mean)`))
 
-write_csv(Area, "area_uc_csv.csv")
-write_csv(Area1, "area1_uc_csv.csv")
+#write_csv(Area, "area_uc_csv.csv")
+#write_csv(Area1, "area1_uc_csv.csv")
 
 
 
@@ -509,8 +509,52 @@ consumedheld %>%
   filter(item == "mussel") %>%
   ggplot(aes(x = held, y = eaten)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2))
   
+
+# plot urchin only consumption total by urchin species
+
+consumed %>%
+  filter(item %in% c("red", "green", "purple")) %>%
+  ggplot(aes(x = item, y = eaten)) +
+  geom_jitter(col = "grey", size = 3, width = 0.10) +
+  stat_summary(
+    geom = "point",
+    fun = "mean",
+    size = 6,
+    shape = 19
+  ) +
+  geom_errorbar(stat="summary", fun.data="mean_se", size = 1) +
+  theme_minimal() +
+  labs(x = "Urchin Species", y = "Number Consumed")
+  
+# remake stacked barplot removing Pycnos that ate >50% mussels
+
+ total_consumed <- consumed %>%
+   filter(pycnoID %in% c("Eagle6", "Eagle4", "Goose1", "Goose2", "Docks3", "Eagle2", "Eagle3")) %>%
+   droplevels() %>%
+   group_by(pycnoID) %>%
+   summarise(total_count = sum(eaten))
+
+ result <- consumed %>%
+   inner_join(total_consumed, by = "pycnoID") %>%
+   mutate(proportion = eaten/total_count) %>%
+   select(pycnoID, item, proportion)
+result %>%
+  filter(item == "mussel" & proportion >0.49)
+ 
+test <- consumed %>%
+  filter(item %in% c('green', 'purple', 'red', 'mussel')) %>%
+  filter(pycnoID %in% c("Eagle6", "Eagle4", "Goose1", "Goose2", "Docks3", "Eagle2", "Eagle3")) %>%
+  droplevels() 
+  test %>%
+    ggplot() +
+  geom_col(aes(x = reorder(pycnoID, eaten, function(x){ sum(x)}), y = eaten, fill = item), position = "fill") +
+  scale_fill_viridis(discrete = TRUE, option = 5, end = 0.9) +
+  theme_bw() + 
+  geom_text(data = total_consumed, aes(x = pycnoID, y= 1.05, label = total_count, fill = NULL)) +
+  labs(x = "", y = "Proportion Consumed") +
+  guides(fill=guide_legend(title="Prey"))
 
 
 
@@ -578,3 +622,4 @@ urchinsize %>%
   summarise(total = sum(consumed)) %>%
   filter(total != 0) %>%
   print(n = 40)
+

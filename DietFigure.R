@@ -279,3 +279,16 @@ annotate_figure(FigureMDS, top = text_grob("2D stress = 0.12", size = 10))
 
 ####
 #<<<<<<<<<<<<<<<<<<<<<<<<<<END OF SCRIPT>>>>>>>>>>>>>>>>>>>>>>>>#
+
+######## SCRATCH PAD
+
+
+
+# generate dataset for possible bayesian analysis
+# location, N, Depth, value, item, Lat, Lon, occurence (multiply N by value)
+diet_per_occ <- PycnoDiet %>%
+  filter(Unit == "percent") %>%
+  mutate(occurrence = (N*value)*0.01)
+diet_cou_occ <- PycnoDiet %>%
+  filter(Unit == "count") %>%
+  mutate(occurrence = )
